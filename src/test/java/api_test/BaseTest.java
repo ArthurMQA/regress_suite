@@ -2,25 +2,26 @@ package api_test;
 
 import javax.xml.bind.DatatypeConverter;
 
-public class BaseTest {
+public abstract class BaseTest {
 
-    // API access data.
-    protected final static String API_URI = "http://someapiadress.com";
-    protected final static String AUTH_METHOD = "/v2/method1";
-    protected final static String MANAGE_PLAYERS_METHOD = "/v2/method2";
-    protected final static String BASIC_AUTH_USERNAME = "front_123456eee1234567fff123";
+    // Config data.
+    protected final static String PATH_TO_PROPERTIES = "src/main/resources/config.properties";
+    protected static String apiUri;
+    protected static String authApiMethod;
+    protected static String playersManageApiMethod;
+    protected static String apiBasicUsername;
 
     // Passed variables. Needed to transfer data between tests.
     protected static String accessToken;
     protected static String usersAccessToken;
     protected static int userId;
 
-    // Generating user credentials.
-    protected static int randomNumber = 1 + (int) (Math.random() * 10000000);
-    protected static String username = "kinyaev" + randomNumber;
-    protected static String name = "Jason";
-    protected static String surname = "Bourne";
-    protected static String email = "foma"+ randomNumber + "@cia.com";
+    // User credentials.
+    protected static int randomNumber;
+    protected static String username;
+    protected static String name;
+    protected static String surname;
+    protected static String email;
 
     // Helper methods.
     protected String encodePassword(String passPhrase) {
