@@ -3,7 +3,6 @@ package ui_test.firefox_browser.test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.*;
 import org.junit.runners.MethodSorters;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,7 +15,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.concurrent.TimeUnit;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class Tests extends BaseTest {
+public class Tests extends BaseTests {
 
 
     @Before

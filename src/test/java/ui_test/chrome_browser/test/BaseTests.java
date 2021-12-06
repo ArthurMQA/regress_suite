@@ -6,9 +6,10 @@ import ui_test.chrome_browser.pages.LoginStaffPage;
 import ui_test.chrome_browser.pages.MainStaffPage;
 import ui_test.chrome_browser.pages.PlayersStaffPage;
 
-public class BaseTest {
+public abstract class BaseTests {
 
-    // Basic URL's
+    // Config data.
+    protected final static String PATH_TO_PROPERTIES = "src/main/resources/config.properties";
     protected final String STAFF_SITE_URL = "http://service.com/test/login";
 
     // Test admin user credentials

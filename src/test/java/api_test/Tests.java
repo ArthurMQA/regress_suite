@@ -16,7 +16,7 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.Matchers.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-    public class Tests extends BaseTest {
+    public class Tests extends BaseTests {
 
 
         @BeforeClass

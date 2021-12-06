@@ -15,7 +15,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.concurrent.TimeUnit;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class Tests extends BaseTest {
+public class Tests extends BaseTests {
 
     @BeforeClass
     public static void setUp() {
@@ -162,6 +162,8 @@ public class Tests extends BaseTest {
 
     @AfterClass
     public static void tearDown() {
+
+        System.out.println("Finish tests");
 
     }
 }
