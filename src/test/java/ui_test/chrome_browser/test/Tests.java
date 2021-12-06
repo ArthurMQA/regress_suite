@@ -17,9 +17,16 @@ import java.util.concurrent.TimeUnit;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class Tests extends BaseTest {
 
+    @BeforeClass
+    public static void setUp() {
+
+        System.out.println("Start tests");
+
+    }
+
 
     @Before
-    public void setUp() {
+    public void start() {
 
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -146,9 +153,15 @@ public class Tests extends BaseTest {
 
 
     @After
-    public void tearDown() {
+    public void finish() {
 
         driver.quit();
+
+    }
+
+
+    @AfterClass
+    public static void tearDown() {
 
     }
 }

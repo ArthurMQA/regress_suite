@@ -5,7 +5,7 @@ import javax.xml.bind.DatatypeConverter;
 public abstract class BaseTest {
 
     // Config data.
-    protected final static String PATH_TO_PROPERTIES = "src/main/resources/config.properties";
+    protected final static String PATH_TO_PROPERTIES = "src/main/resources/config_example.properties";
     protected static String apiUri;
     protected static String authApiMethod;
     protected static String playersManageApiMethod;
