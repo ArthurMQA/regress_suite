@@ -93,7 +93,7 @@ import static org.hamcrest.Matchers.*;
             body.put("surname", surname);
             body.put("currency", "EUR");
 
-            userId =
+            userID =
                     given()
                             //.log().all()
                             .header("Authorization", accessToken)
@@ -160,10 +160,10 @@ import static org.hamcrest.Matchers.*;
                             //.log().all()
                             .header("Authorization", usersAccessToken)
                             .contentType(ContentType.JSON)
-                            .when().get(playersManageApiMethod + "/" + userId)
+                            .when().get(playersManageApiMethod + "/" + userID)
                             .then()
                             .assertThat()
-                            .body("id", equalTo(userId)).and()
+                            .body("id", equalTo(userID)).and()
                             .body("username", equalTo(username)).and()
                             .body("email", equalTo(email)).and()
                             .body("name", equalTo(name)).and()
@@ -190,7 +190,7 @@ import static org.hamcrest.Matchers.*;
                             //.log().all()
                             .header("Authorization", usersAccessToken)
                             .contentType(ContentType.JSON)
-                            .when().get(playersManageApiMethod + "/" + (userId + randomNumber))
+                            .when().get(playersManageApiMethod + "/" + (userID + randomNumber))
                             .then()
                             .assertThat()
                             .time(lessThan(4000L)).and()

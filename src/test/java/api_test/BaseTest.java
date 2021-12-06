@@ -14,7 +14,7 @@ public abstract class BaseTest {
     // Passed variables. Needed to transfer data between tests.
     protected static String accessToken;
     protected static String usersAccessToken;
-    protected static int userId;
+    protected static int userID;
 
     // User credentials.
     protected static int randomNumber;
