@@ -24,7 +24,7 @@ public abstract class BaseTests {
     protected static String email;
 
     // Helper methods.
-    protected String encodePassword(String passPhrase) {
+    public String encodePassword(String passPhrase) {
         String str = passPhrase;
         String encodedPassword = DatatypeConverter.printBase64Binary(str.getBytes());
         return encodedPassword;

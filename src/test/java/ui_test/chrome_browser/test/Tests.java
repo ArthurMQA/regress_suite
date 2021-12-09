@@ -10,8 +10,11 @@ import ui_test.chrome_browser.pages.LoginStaffPage;
 import ui_test.chrome_browser.pages.MainStaffPage;
 import ui_test.chrome_browser.pages.PlayersStaffPage;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -21,6 +24,23 @@ public class Tests extends BaseTests {
     public static void setUp() {
 
         System.out.println("Start tests");
+
+        FileInputStream fileInputStream;
+        Properties prop = new Properties();
+
+        try {
+
+            fileInputStream = new FileInputStream(PATH_TO_PROPERTIES);
+            prop.load(fileInputStream);
+
+            staffUrl = prop.getProperty("staff_site_url");
+            staffLogin = prop.getProperty("my_staff_username");
+            staffPassword = prop.getProperty("my_staff_password");
+
+        } catch (IOException e) {
+            System.out.println("Error: file " + PATH_TO_PROPERTIES + " not found");
+            e.printStackTrace();
+        }
 
     }
 
@@ -43,10 +63,10 @@ public class Tests extends BaseTests {
     @Test
     public void test1_authorization() {
 
-        driver.get(STAFF_SITE_URL);
+        driver.get(staffUrl);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Assert.assertEquals("Casino", loginPage.getHeadingText());
-        mainPage = loginPage.signIn(USER_LOGIN,USER_PASSWORD);
+        mainPage = loginPage.signIn(staffLogin, staffPassword);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Assert.assertEquals(true, mainPage.headerLogo.isDisplayed());
         Assert.assertEquals(true, mainPage.dashboardTickets.isDisplayed());
@@ -62,10 +82,10 @@ public class Tests extends BaseTests {
     @Test
     public void test2_playerTableSorting() {
 
-        driver.get(STAFF_SITE_URL);
+        driver.get(staffUrl);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Assert.assertEquals("Casino", loginPage.getHeadingText());
-        mainPage = loginPage.signIn(USER_LOGIN,USER_PASSWORD);
+        mainPage = loginPage.signIn(staffLogin, staffPassword);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         playersPage = mainPage.moveToPlayersPage();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -81,10 +101,10 @@ public class Tests extends BaseTests {
     @Test
     public void test3_playersTableAscendingSort() throws InterruptedException {
 
-        driver.get(STAFF_SITE_URL);
+        driver.get(staffUrl);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Assert.assertEquals("Casino", loginPage.getHeadingText());
-        mainPage = loginPage.signIn(USER_LOGIN,USER_PASSWORD);
+        mainPage = loginPage.signIn(staffLogin, staffPassword);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         playersPage = mainPage.moveToPlayersPage();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -117,10 +137,10 @@ public class Tests extends BaseTests {
     @Test
     public void test4_playersTableDescendingSort() throws InterruptedException {
 
-        driver.get(STAFF_SITE_URL);
+        driver.get(staffUrl);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Assert.assertEquals("Casino", loginPage.getHeadingText());
-        mainPage = loginPage.signIn(USER_LOGIN,USER_PASSWORD);
+        mainPage = loginPage.signIn(staffLogin, staffPassword);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         playersPage = mainPage.moveToPlayersPage();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

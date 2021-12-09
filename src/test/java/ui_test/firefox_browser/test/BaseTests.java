@@ -2,25 +2,24 @@ package ui_test.firefox_browser.test;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import ui_test.chrome_browser.pages.LoginStaffPage;
-import ui_test.chrome_browser.pages.MainStaffPage;
-import ui_test.chrome_browser.pages.PlayersStaffPage;
+import ui_test.firefox_browser.pages.LoginStaffPage;
+import ui_test.firefox_browser.pages.MainStaffPage;
+import ui_test.firefox_browser.pages.PlayersStaffPage;
 
 public abstract class BaseTests {
 
-    // Basic URL's
-    protected final String STAFF_SITE_URL = "http://service.com/test/login";
+    // Config data.
+    protected final static String PATH_TO_PROPERTIES = "src/main/resources/config.properties";
+    protected static String staffUrl;
+    protected static String staffLogin;
+    protected static String staffPassword;
 
-    // Test admin user credentials
-    protected final String USER_LOGIN = "user1";
-    protected final String USER_PASSWORD = "newpassword123";
-
-    // Page object and driver variables
+    // Page object variables.
     protected static WebDriver driver;
+    protected static WebDriverWait wait;
     protected static LoginStaffPage loginPage;
     protected static MainStaffPage mainPage;
     protected static PlayersStaffPage playersPage;
-    protected static WebDriverWait wait;
 
 
 }

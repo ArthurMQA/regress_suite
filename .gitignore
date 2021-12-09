@@ -2,6 +2,7 @@
 /shelf/
 /workspace.xml
 config.properties
+.env
 # IDEA
 .idea
 *.iws
