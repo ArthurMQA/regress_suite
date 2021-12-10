@@ -1,5 +1,6 @@
 package api_test;
 
+
 import javax.xml.bind.DatatypeConverter;
 
 public abstract class BaseTests {
@@ -29,5 +30,6 @@ public abstract class BaseTests {
         String encodedPassword = DatatypeConverter.printBase64Binary(str.getBytes());
         return encodedPassword;
     }
+
 
 }

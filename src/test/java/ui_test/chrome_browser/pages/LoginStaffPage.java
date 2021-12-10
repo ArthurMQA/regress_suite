@@ -6,11 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import ui_test.BasicUIService;
 
-import java.util.stream.BaseStream;
-
-public class LoginStaffPage implements BasicUIService {
+public class LoginStaffPage {
 
 
     private WebDriver driver;
@@ -66,7 +63,6 @@ public class LoginStaffPage implements BasicUIService {
         return new MainStaffPage(driver);
     }
 
-    @Override
     public String getHeadingText() {
         return heading.getText();
     }
