@@ -6,8 +6,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ui_test.BasicUIService;
 
-public class LoginStaffPage {
+import java.util.stream.BaseStream;
+
+public class LoginStaffPage implements BasicUIService {
 
 
     private WebDriver driver;
@@ -46,6 +49,13 @@ public class LoginStaffPage {
         return this;
     }
 
+    public void typeCredentials(String login, String password) {
+        wait.until(ExpectedConditions.visibilityOf(loginInput));
+        loginInput.sendKeys(login);
+        wait.until(ExpectedConditions.visibilityOf(passwordInput));
+        passwordInput.sendKeys(password);
+    }
+
     public MainStaffPage signIn(String login, String password) {
         wait.until(ExpectedConditions.visibilityOf(loginInput));
         loginInput.sendKeys(login);
@@ -56,13 +66,10 @@ public class LoginStaffPage {
         return new MainStaffPage(driver);
     }
 
-    public String  getHeadingText() {
+    @Override
+    public String getHeadingText() {
         return heading.getText();
     }
-
-
-
-
 
 
 }
